@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import TapRoad from './TapRoad'
 
 type CoinSide = 'fej' | 'írás'
 
 function App() {
   const [side, setSide] = useState<CoinSide>('fej')
+  const [tab, setTab] = useState<'coin' | 'taproad'>('coin')
   const [flipping, setFlipping] = useState(false)
   const [heads, setHeads] = useState(0)
   const [tails, setTails] = useState(0)
@@ -39,10 +41,18 @@ function App() {
           <span className="brand-mark">H/I</span>
           <span>Érmecsináló</span>
         </div>
-        <button className="reset-button" type="button" onClick={reset} disabled={flipping || total === 0}>
-          Újrakezdés
-        </button>
+        <nav className="tabs">
+          <button type="button" className={tab === 'coin' ? 'active' : ''} onClick={() => setTab('coin')}>Érme</button>
+          <button type="button" className={tab === 'taproad' ? 'active' : ''} onClick={() => setTab('taproad')}>TapRoad 2</button>
+          {tab === 'coin' && (
+            <button className="reset-button" type="button" onClick={reset} disabled={flipping || total === 0}>
+              Újrakezdés
+            </button>
+          )}
+        </nav>
       </header>
+
+      {tab === 'taproad' ? <TapRoad /> : (
 
       <section className="game-board" aria-live="polite">
         <div className="scoreboard" aria-label="Dobás eredmények">
@@ -82,6 +92,7 @@ function App() {
 
         <p className="round-count">Összes dobás: {total}</p>
       </section>
+      )}
     </main>
   )
 }
