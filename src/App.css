@@ -277,10 +277,10 @@ button:focus-visible {
 .taproad-wrap canvas { display: block; width: 100%; height: auto; border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,.18); }
 .taproad-overlay {
   position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 8px; background: rgba(29,33,29,.55); color: #fff; border-radius: 16px; text-align: center; padding: 20px;
+  gap: 8px; background: rgba(5,1,15,.6); color: #fff; border-radius: 16px; text-align: center; padding: 20px;
 }
 .taproad-overlay h2 { margin: 0; font-size: 34px; }
 .taproad-overlay p { margin: 0 0 8px; }
-.taproad-overlay button { border: 0; border-radius: 999px; padding: 10px 26px; background: #efb945; font-weight: 700; color: #1d211d; }
+.taproad-overlay button { border: 0; box-shadow: 0 0 18px #ff3df2; border-radius: 999px; padding: 10px 26px; background: #efb945; font-weight: 700; color: #1d211d; }
 
 @media (max-width: 560px) { header { padding: 0 16px; } .brand span:last-child { display: none; } }
