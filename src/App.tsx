@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-import TapRoad from './TapRoad'
+import NeonOrb from './NeonOrb'
 
 type CoinSide = 'fej' | 'írás'
 
 function App() {
   const [side, setSide] = useState<CoinSide>('fej')
-  const [tab, setTab] = useState<'coin' | 'taproad'>('coin')
+  const [tab, setTab] = useState<'coin' | 'neonorb'>('coin')
   const [flipping, setFlipping] = useState(false)
   const [heads, setHeads] = useState(0)
   const [tails, setTails] = useState(0)
@@ -43,7 +43,7 @@ function App() {
         </div>
         <nav className="tabs">
           <button type="button" className={tab === 'coin' ? 'active' : ''} onClick={() => setTab('coin')}>Érme</button>
-          <button type="button" className={tab === 'taproad' ? 'active' : ''} onClick={() => setTab('taproad')}>TapRoad 2</button>
+          <button type="button" className={tab === 'neonorb' ? 'active' : ''} onClick={() => setTab('neonorb')}>Neon Gömb</button>
           {tab === 'coin' && (
             <button className="reset-button" type="button" onClick={reset} disabled={flipping || total === 0}>
               Újrakezdés
@@ -52,7 +52,7 @@ function App() {
         </nav>
       </header>
 
-      {tab === 'taproad' ? <TapRoad /> : (
+      {tab === 'neonorb' ? <NeonOrb /> : (
 
       <section className="game-board" aria-live="polite">
         <div className="scoreboard" aria-label="Dobás eredmények">
